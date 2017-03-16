@@ -50,8 +50,8 @@ public class WorkshopTasks {
         //Create client (step 1 & 2)
         client = Client.create(Config.with()
                 .scope(DATA)
-                .clientId("316f11c5-b768-4ef8-8404-d1ec508557ec")
-                .clientSecret("cb780e210c75194487d1ec40143ce40f3fef178bf1bf509a4b9bcb370f302d85")
+                .clientId("MY_CLIENT_ID")
+                .clientSecret("MY_CLIENT_SECRET")
                 .scope(USER, DATA)
                 .httpLoggingLevel(HttpLoggingInterceptor.Level.BODY)
                 .build());
