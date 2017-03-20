@@ -42,7 +42,7 @@ import static com.domo.sdk.request.Scope.USER;
  * Created by clintchecketts on 3/14/17.
  */
 @SuppressWarnings("Duplicates")
-public class WorkshopTasks {
+public class WorkshopTasksFinal {
 
     private Client client;
 
@@ -137,7 +137,7 @@ public class WorkshopTasks {
         DataSet ds = dsClient.create(createRequest);
 
         //Import Data
-        //TODO Use Client to import data
+        dsClient.importData(ds.getId(),csvFile);
 
 
     }
@@ -217,10 +217,19 @@ public class WorkshopTasks {
 
 
         //Create DS
-        //TODO Create DataSet with correct Schema
+        DataSetClient dsClient = client.dataSetClient();
+
+        CreateDataSetRequest createRequest = new CreateDataSetRequest();
+        createRequest.setName("Pokemon!");
+        createRequest.setDescription("Pokemon Names");
+        createRequest.setSchema(new Schema(Lists.newArrayList(
+                new Column(LONG, "id"),
+                new Column(STRING, "name"))));
+
+        DataSet ds = dsClient.create(createRequest);
 
         //Import Data
-        //TODO Import csvFile
+        dsClient.importData(ds.getId(),csvFile);
     }
 
 
